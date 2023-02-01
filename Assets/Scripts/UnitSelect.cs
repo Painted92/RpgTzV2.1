@@ -8,7 +8,7 @@ public class UnitSelect : MonoBehaviour
     private int selectedCharacter;
     private GameObject spown;
 
-    private void Start() => GeneratorCharaterMass();// заполняем масив дочерними обьектами, выключаем их оставляя первый обьект включенным.
+    private void Start() => GeneratorCharaterMass();// заполняем масив дочерними обьектами, выключаем их оставляя первый обьект включенным
     private void GeneratorCharaterMass()
     {
         character = Resources.LoadAll<GameObject>("Prefabs");
