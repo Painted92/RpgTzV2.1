@@ -1,18 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class LoadGamesScene : UnitSelect
+public class LoadGamesScene : MonoBehaviour
 {
     [SerializeField] private GameObject[] parentCharacter;
     private int selectedCharaterGamesScene;
+    private const string SAVE_PREF = "selectedCharacter";
+    private const string FOLDER_PREFAB = "Prefabs";
     void Start() => StartScene();
     private void StartScene()
     {
-        LoadSelectedCharacter();
+         LoadSelectedCharacter();
 
-         parentCharacter = Resources.LoadAll<GameObject>("Prefabs");
+         parentCharacter = Resources.LoadAll<GameObject>(FOLDER_PREFAB);
          Instantiate(parentCharacter[selectedCharaterGamesScene], Vector3.zero, Quaternion.identity);
     }
-    private void LoadSelectedCharacter() => selectedCharaterGamesScene = PlayerPrefs.GetInt("selectedCharacter");
+    private void LoadSelectedCharacter() => selectedCharaterGamesScene = PlayerPrefs.GetInt(SAVE_PREF);
 }
